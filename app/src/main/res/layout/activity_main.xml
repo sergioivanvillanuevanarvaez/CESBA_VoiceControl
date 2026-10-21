@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#182A57">
+
+    <LinearLayout
+        android:id="@+id/mainPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Encabezado -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CESBA"
+            android:textColor="#F0B323"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.3" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="VoiceControl"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Asistente controlado por voz"
+            android:textColor="#CCFFFFFF"
+            android:textSize="15sp" />
+
+        <!-- Estado -->
+        <TextView
+            android:id="@+id/txtEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="Estado: iniciando..."
+            android:textColor="#F0B323"
+            android:textSize="18sp" />
+
+        <!-- Micrófono con pulso animado -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="190dp">
+
+            <View
+                android:id="@+id/pulse"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pulse" />
+
+            <Button
+                android:id="@+id/btnEscuchar"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_mic"
+                android:text="🎤"
+                android:textSize="40sp" />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_boton_sec"
+            android:text="CANCELAR"
+            android:textColor="#FFFFFF" />
+
+        <!-- Temporizador activo -->
+        <TextView
+            android:id="@+id/txtTemporizador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="#F0B323"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!-- Comandos rápidos -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="COMANDOS RÁPIDOS"
+            android:textColor="#F0B323"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/chipsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <!-- Texto reconocido -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="TEXTO RECONOCIDO"
+            android:textColor="#F0B323"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtReconocido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_card"
+            android:padding="14dp"
+            android:text="Esperando instrucciones..."
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <!-- Respuesta -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="RESPUESTA DEL ASISTENTE"
+            android:textColor="#F0B323"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtRespuesta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_card"
+            android:padding="14dp"
+            android:text="Sin respuesta."
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <!-- Calculadora -->
+        <LinearLayout
+            android:id="@+id/panelCalculadora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CALCULADORA"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/numA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Primer número"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#99FFFFFF"
+                android:inputType="numberDecimal|numberSigned" />
+
+            <EditText
+                android:id="@+id/numB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Segundo número"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#99FFFFFF"
+                android:inputType="numberDecimal|numberSigned" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button android:id="@+id/btnSumar" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:text="+" />
+                <Button android:id="@+id/btnRestar" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:text="−" />
+                <Button android:id="@+id/btnMult" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:text="×" />
+                <Button android:id="@+id/btnDiv" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:text="÷" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCerrarCalc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CERRAR CALCULADORA" />
+        </LinearLayout>
+
+        <!-- Historial -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="HISTORIAL"
+            android:textColor="#F0B323"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtHistorial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_card"
+            android:padding="14dp"
+            android:text="Aún no hay comandos."
+            android:textColor="#CCFFFFFF"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Presiona el micrófono y pronuncia una instrucción. El reconocimiento puede requerir Internet. Di «ayuda» para ver todo lo que puedo hacer."
+            android:textColor="#99FFFFFF"
+            android:textSize="13sp" />
+    </LinearLayout>
+</ScrollView>
